@@ -1,0 +1,49 @@
+<div class="container">
+    <h1 class="header">Bienvenido</h1>
+    <div class="buttons-container">
+      <button class="button" (click)="irACliente()">Clientes</button>
+      <button class="button" (click)="irARecargas()">Recargas</button>
+    </div>
+    <form>
+      <table>
+        <tr>
+          <td>Código</td>
+          <td><input type="number" name="txtCodigo" id="txtCodigo" [(ngModel)]="client.id"></td>
+        </tr>
+        <tr>
+          <td>Nombre</td>
+          <td><input type="text" name="txtNombre" id="txtNombre" [(ngModel)]="client.nombre"></td>
+        </tr>
+        <tr>
+          <td>DNI</td>
+          <td><input type="text" name="txtDNI" id="txtDNI" [(ngModel)]="client.dni"></td>
+        </tr>
+        <tr>
+          <td>Saldo</td>
+          <td><input type="text" name="txtSaldo" id="txtSaldo" [(ngModel)]="client.saldo"></td>
+        </tr>
+      </table>
+      <button (click)="guardar()">Guardar</button>
+      <button (click)="actualizar()">Actualizar</button>
+    </form>
+    <hr/>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>DNI</th>
+        <th>Nombre</th>
+        <th>Saldo</th>
+      </tr>
+      <tr *ngFor="let cli of clientes | async">
+        <td>{{cli.codigo}}</td>
+        <td>{{cli.dni}}</td>
+        <td>{{cli.nombre}}</td>
+        <td>{{cli.saldo}}</td>
+        <td>
+          <button (click)="eliminarPersona(cli.id)">Eliminar</button>
+        </td>
+      </tr>
+    </table>
+    <hr/>
+  </div>
+  

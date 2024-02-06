@@ -1,0 +1,33 @@
+<div class="container">
+    <h1 class="header">Bienvenido</h1>
+    <div class="buttons-container">
+      <button class="button" (click)="irACliente()">Clientes</button>
+      <button class="button" (click)="irARecargas()">Recargas</button>
+    </div>
+    <form class="form">
+      <label for="numero">Número Celular:</label>
+      <input type="text" id="numero" name="numero" required>
+      <label for="operador">Operador:</label>
+      <input type="text" id="operador" name="operador" required>
+      <label for="monto">Monto:</label>
+      <input type="number" id="monto" name="monto" required>
+      <button type="submit" class="submit-button" (click)="obtenerRecarga()">Enviar</button>
+    </form>
+    <div class="tabla-container" *ngIf="recarga">
+      <table class="tabla-cliente">
+        <thead>
+          <tr>
+            <th>DNI</th>
+            <th>Saldo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ recarga.dni }}</td>
+            <td>{{ recarga.monto }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+  
